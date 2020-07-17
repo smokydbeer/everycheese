@@ -14,7 +14,7 @@ class CheeseCreateView(LoginRequiredMixin, CreateView):
     fields = [
 	'name', 'description', 'firmness',
 	'country_of_origin',]
-    
+
     def form_valid(self, form):
-        form.insatnce.creator = self.request.user
+        form.instance.creator = self.request.user
         return super().form_valid(form)
